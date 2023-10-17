@@ -1,0 +1,121 @@
+<lib-ng-toast></lib-ng-toast>
+<div class="FileViewer">
+
+    <div class="hdr">
+        <button routerLink="/" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+               <mat-icon>navigate_before</mat-icon>
+             </button>
+         
+         
+    </div>
+
+    <div class="content">
+        
+        <div class="center">
+            <h1 >{{fileDetails?.fileName?.split(".")![0]}} <mat-icon *ngIf="fileDetails?.starred" style="color: yellow; text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">star</mat-icon> </h1>
+        </div>
+        <br>
+        <div class="center">
+            
+        <div *ngIf="isImage==true">
+            <img [src]="IMGsrc" class="mainImg">
+            
+        </div>
+
+        <div *ngIf="isPDF==true">
+
+            <iframe [src]="selectedFileBLOB" type="application/pdf" width="950" height="600">
+                
+            </iframe>
+            
+        </div>
+
+        
+
+        <div *ngIf="isVideo==true">
+            <video style="border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;;
+            " [src]="selectedFileBLOB" controls>
+            
+              </video>
+        </div>
+
+        <div *ngIf="isAudio==true">
+            <audio [src]="selectedFileBLOB" controls>
+
+            </audio>
+        </div>
+
+        <div *ngIf="anyElseFile==true"> 
+            <div class="frameStyle">
+                <iframe [src]="selectedFileBLOB" width="950" height="600">
+                    <div class="innerFrame">
+
+                    </div>
+                </iframe>
+            </div>
+        </div>
+
+        </div>
+        <br>
+
+        <!-- <div class="center"> -->
+            <!-- <h3><b>File Type:</b> {{fileDetails?.contentType}}</h3> -->
+        <!-- </div> -->
+        <hr>
+        
+    </div>
+
+    <div class="buttons">
+
+        <button mat-raised-button color="accent" mat-raised-button style="margin-right: 5px;" class="shareButton" (click)="openDialog()">
+            <mat-icon>share </mat-icon>
+        </button>
+
+        <button mat-raised-button color="warn" mat-raised-button style="margin-right: 5px;" (click)="onDelete(fileDetails!.fileName)">
+            <mat-icon>delete </mat-icon>
+        </button>
+        
+        <button *ngIf="starStatus==false" mat-raised-button  mat-raised-button style="margin-right: 5px;" class="starButton" (click)="onStar(fileDetails!.fileName)">
+            <mat-icon>star </mat-icon>
+        </button>
+
+        <button *ngIf="starStatus==true" mat-raised-button  mat-raised-button style="margin-right: 5px;" class="starButton" (click)="onStar(fileDetails!.fileName)">
+            <mat-icon class="star-icon" >star </mat-icon>
+        </button>
+
+
+
+        <button mat-raised-button color="primary" mat-raised-button style="margin-right: 5px;" (click)="onDownload(fileDetails!.id,fileDetails!.fileName)">
+            <mat-icon>download </mat-icon>
+        </button>
+
+        <!-- <button mat-raised-button color="primary" mat-raised-button style="margin-right: 5px;" (click)="onUpdate(fileDetails!.id)"> 
+            <mat-icon>update </mat-icon>
+        </button> -->
+       
+        <hr>
+
+    </div>
+
+    <div class="details">
+        <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                   <h3><b>View Details</b></h3>
+                </mat-panel-title>
+
+                </mat-expansion-panel-header>
+                    <p><b>Last accessed</b> {{fileDetails?.lastModification}}</p>
+                    <p><b>Type:</b > {{fileDetails?.contentType}}</p>
+                    <p><b>Owner:</b> {{fileDetails?.username}}</p>
+                    <p><b>Size:</b> {{fileSize}} bytes</p>
+                    <p><b>Upload Date:</b> {{fileDetails?.uploadDate}}</p>
+                </mat-expansion-panel>
+    </div>
+
+    
+
+
+</div>
+

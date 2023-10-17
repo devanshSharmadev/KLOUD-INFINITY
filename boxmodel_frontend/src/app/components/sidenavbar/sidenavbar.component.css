@@ -1,0 +1,59 @@
+.box{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    border-bottom: 1px solid #dcdde1;
+    width: 100%;
+    color: #2f3640;
+    text-decoration:none;
+    font-size: large;
+    background-color: white;
+    white-space: pre-wrap !important;
+
+}
+.boxu{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid #dcdde1;
+    background-color: white;
+    white-space: pre-wrap !important;
+}
+
+.box a{
+    text-decoration: none;
+}
+
+.box:visited{
+    text-decoration: none;
+}
+
+.box:hover{
+    background-color: #00a8ff;
+    text-decoration: none;
+}
+
+.box a:active{
+    background-color: #00a8ff;
+    text-decoration: none;
+}
+
+.active{
+    background-color: #00a8ff;
+text-decoration: none;
+}
+
+
+
+.box:visited{
+    text-decoration: none;
+}
+
+.addbtn{
+    background-color: white;
+    border: none;
+    width: 100%;
+}
+
+.sidebarBody{
+    background-color: white;
+}

@@ -1,0 +1,24 @@
+<div class="switcher">
+    <br>
+    <span style="background-color: #2c3e50; padding-top:10px; padding-bottom: 10px; display: flex; align-items: center;justify-content: center;" >
+        <span style="margin-right:10px ; background-color: white; padding: 5px; border-radius: 5px;">
+            Files shared to me
+        </span>
+        <span>
+            <mat-slide-toggle (change)="doIfswitched($event)"></mat-slide-toggle>
+        </span>
+        <span style="margin-left:10px ; background-color: white; padding: 5px; border-radius: 5px;">
+            Files I shared
+        </span>
+    </span>
+    
+</div>
+
+
+<div class="tableArea" *ngIf="Switcher==false">
+<app-shared-files-table [data]="filesIShared"></app-shared-files-table>
+</div>
+
+<div class="tableArea" *ngIf="Switcher==true">
+<app-ishared-components></app-ishared-components>
+</div>

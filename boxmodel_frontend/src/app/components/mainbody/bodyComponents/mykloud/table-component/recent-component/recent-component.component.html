@@ -1,0 +1,47 @@
+
+<div class="recentCards">
+    <h3>Recent</h3>
+    
+    <div class="card" *ngIf="filesLength>=1">
+       <img class="crdImg" [src]="filesToDisplay[0].thumbnail" width="60%" height="100px"><br/>
+       <h5>{{filesToDisplay[0].fileName.split(".")[0]}}</h5>
+       <button mat-icon-button color="primary" (click)="onAccess(filesToDisplay[0].fileName)" [routerLink]="['/viewFile', filesToDisplay[0].fileName]" >
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </div>
+
+    <div class="card" *ngIf="filesLength>=2">
+        <img class="crdImg" [src]="filesToDisplay[1].thumbnail" width="60%" height="100px"><br/>
+        <h5>{{filesToDisplay[1].fileName.split(".")[0]}}</h5>
+        <button mat-icon-button color="primary" (click)="onAccess(filesToDisplay[1].fileName)"  [routerLink]="['/viewFile', filesToDisplay[1].fileName]" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+     </div>
+
+     <div class="card" *ngIf="filesLength>=3">
+        <img class="crdImg" [src]="filesToDisplay[2].thumbnail" width="60%" height="100px" ><br/>
+        <h5>{{filesToDisplay[2].fileName.split(".")[0]}}</h5>
+        <button mat-icon-button color="primary" (click)="onAccess(filesToDisplay[2].fileName)" [routerLink]="['/viewFile', filesToDisplay[2].fileName]" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+     </div>
+
+     <div class="card" *ngIf="filesLength>=4"  height="100px">
+        <img class="crdImg" [src]="filesToDisplay[3].thumbnail" width="60%" height="100"><br/>
+        <h5>{{filesToDisplay[3].fileName.split(".")[0]}}</h5>
+        <button mat-icon-button color="primary" (click)="onAccess(filesToDisplay[3].fileName)"  [routerLink]="['/viewFile', filesToDisplay[3].fileName]" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+     </div>
+
+     <div class="card" *ngIf="filesLength>=5"  height="100px">
+        <img class="crdImg" [src]="filesToDisplay[4].thumbnail" width="60%" height="100"><br/>
+        <h5>{{filesToDisplay[4].fileName.split(".")[0]}}</h5>
+        <button mat-icon-button color="primary" (click)="onAccess(filesToDisplay[4].fileName)" [routerLink]="['/viewFile', filesToDisplay[4].fileName]" >
+            <mat-icon>visibility</mat-icon>
+          </button>
+     </div>
+ 
+
+
+</div>

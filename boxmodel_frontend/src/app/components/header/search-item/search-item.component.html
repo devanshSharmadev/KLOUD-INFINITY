@@ -1,0 +1,57 @@
+<div class="searchItem">
+
+      <input type="text"
+             placeholder="Search in kloud"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto"
+             appearance="outline">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredFiles | async" [value]="option.fileName">
+          <a [routerLink]="['/viewFile', option.fileName]" style="text-decoration: none;">
+          
+            <img class="example-option-img" aria-hidden [src]="option.thumbnail" height="25" style="margin-top: 5px;">
+            <span style="font-size: 18px; margin-left: 20px;" class="fileNameDD">{{option.fileName}}</span> 
+            <small *ngIf="option.starred" style="float: right; color: yellow;"><mat-icon >star</mat-icon></small>
+          </a>
+        </mat-option>
+      </mat-autocomplete>
+    
+<!-- <input type="text" class="inputS" placeholder="Search in kloud" > -->
+
+  <button mat-raised-button color="basic" mat-raised-button style="margin-left: 10px;" >
+     <mat-icon>search </mat-icon>
+  </button>
+
+</div>
+
+<div class="MsearchItem">
+
+  <div class="inputS">
+
+    <input type="text"
+             placeholder="Search in kloud"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto"
+             appearance="outline">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredFiles | async" [value]="option.fileName">
+          <a [routerLink]="['/viewFile', option.fileName]" style="text-decoration: none;">
+          
+            <img class="example-option-img" aria-hidden [src]="option.thumbnail" height="25" style="margin-top: 5px;">
+            <span style="font-size: 18px; margin-left: 20px;" class="fileNameDD">{{option.fileName}}</span> 
+            <small *ngIf="option.starred" style="float: right; color: yellow;"><mat-icon >star</mat-icon></small>
+          </a>
+        </mat-option>
+      </mat-autocomplete>
+
+  </div>
+
+  
+
+  
+
+</div>

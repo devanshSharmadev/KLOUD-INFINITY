@@ -1,0 +1,28 @@
+.txtViewer{
+    margin: 5px;
+    background-color: #e8e8e8;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+hr{
+    border-top: 1px dotted #8c8b8b;
+}
+
+button{
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+
+    background-color: #00a8ff;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:hover{
+    background-color: #0097e6;
+}

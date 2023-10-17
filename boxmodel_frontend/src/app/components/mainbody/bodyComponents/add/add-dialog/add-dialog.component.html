@@ -1,0 +1,51 @@
+<lib-ng-toast></lib-ng-toast>
+
+<div class="switcher">
+  
+
+    <span class="switchLabel"> <b>Single &nbsp;</b> </span><mat-slide-toggle [(ngModel)]="switchModel" color="primary"></mat-slide-toggle> <span class="switchLabel"> <b>&nbsp; Multiple</b> </span>
+
+</div>
+<br>
+
+<h2 mat-dialog-title>{{switchModel? 'Add files' : 'Add file'}}</h2>
+
+<!-- <mat-form-field class="example-full-width" appearance="outline"> -->
+    <!-- <mat-label>File Name</mat-label> -->
+    <!-- <input matInput type="text" (change)="getName(name.value)" #name> -->
+<!-- </mat-form-field> -->
+<!-- <br> -->
+<!--  -->
+
+
+
+
+
+
+<div *ngIf="switchModel; else elseBlock"><input class="fileInput" style="margin-top: 5px; margin-bottom: 5px;" mat-button type="file" (change)="getFiles($event)" required multiple/><br/>
+    *File limit is upto 7
+</div>
+<ng-template #elseBlock> 
+    <input class="fileInput" style="margin-top: 5px; margin-bottom: 5px;" mat-button type="file" (change)="getFile($event)" required /><br/>
+</ng-template>
+
+<div *ngIf="file">
+    <img src="{{imgSrc}}" style="margin: 8px; border-radius: 5px;" width="100" height="100">
+</div>
+
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+
+    <div *ngIf="switchModel; else elseBlock2">
+        <button mat-raised-button color="primary" type="button" (click)="submitData2()" value="Upload file" mat-dialog-close>Upload</button>
+
+    </div>
+
+    <ng-template #elseBlock2>
+     <button mat-raised-button color="primary" type="button" (click)="submitData()" value="Upload file" mat-dialog-close>Upload</button>
+
+    </ng-template>
+
+
+</mat-dialog-actions>

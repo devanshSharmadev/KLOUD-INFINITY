@@ -1,0 +1,75 @@
+
+<div *ngIf="isFile==true">
+    <div class="txtViewer" >
+        {{textToDisplay}}
+    </div>
+
+    <hr>
+
+    <a download="{{filename}}" [href]="fileTodisplaytext" >
+        <button mat-raised-button color="primary">
+            <mat-icon>download</mat-icon>
+            
+        </button>
+    </a>
+</div>
+
+<div *ngIf="isImage==true">
+    <img [src]="fileTodisplaytext" height="500">
+    <hr>
+
+    <a download="{{filename}}" [href]="fileTodisplaytext" >
+        <button mat-raised-button color="primary">
+            <mat-icon>download</mat-icon>
+        </button>
+    </a>
+    
+</div>
+
+<div *ngIf="isPDF==true">
+
+
+    <iframe [src]="fileTodisplaytext" type="application/pdf" width="950" height="600">
+                
+    </iframe>
+
+    <hr>
+
+    <a download="{{filename}}" [href]="fileTodisplaytext" >
+        <button mat-raised-button color="primary">
+            <mat-icon>download</mat-icon>
+        </button>
+    </a>
+</div>
+
+<div *ngIf="isVideo==true">
+    <p>Video</p>
+
+    <video style="border-radius: 5px; box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;;
+    " [src]="fileTodisplaytext" controls>
+    
+      </video>
+
+    <hr>
+
+    <a download="{{filename}}" [href]="fileTodisplaytext" >
+        <button mat-raised-button color="primary">
+            <mat-icon>download</mat-icon>
+        </button>
+    </a>
+</div>
+
+<div *ngIf="isAudio==true">
+   
+    <audio [src]="fileTodisplaytext" controls>
+
+    </audio>
+
+    <hr>
+
+    <a download="{{filename}}" [href]="fileTodisplaytext" >
+        <button mat-raised-button color="primary">
+            <mat-icon>download</mat-icon>
+        </button>
+    </a>
+</div>

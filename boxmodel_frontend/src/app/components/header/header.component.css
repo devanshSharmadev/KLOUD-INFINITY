@@ -1,0 +1,143 @@
+.header{
+    display: flex;
+    border: 1px solid #273c75;
+    background-color:#273c75 ;
+    color: #ecf0f1;
+    padding-top: 15px;
+    padding-bottom: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: space-between;
+}
+
+.logo{
+  width: 15%;
+  float: left;
+}
+
+.searchPanel{
+  width: 65%;
+  float: left;
+  
+
+}
+
+.contollers{
+  width: 20%;
+  float: left;
+  
+}
+
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  ngx-avatar:hover{
+
+    cursor: pointer;
+
+  }
+
+  .centerElements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mab {
+    
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;    
+    padding-right: 30px;
+    border-radius: 40px;
+    border: none;
+    background-color: #ecf0f1;
+    color: #2C3A47;
+  }
+  
+  .mab:hover {
+   background-color: #2C3A47;
+   color:#ecf0f1 ;
+   cursor: pointer;
+   
+  }
+
+  ::ng-deep.mat-menu-panel {
+    max-width: 100% !important;
+  }
+  
+  
+.inputS{
+  padding-top:15px; 
+  padding-bottom:15px; 
+  padding-left:10px; 
+  padding-right:10px; 
+  border:none;
+  border-radius: 5px;
+  width: 700px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.mobileDisplay{
+  display: none;
+}
+
+
+input:focus {
+  outline: none ! important;
+  }
+  
+  @media(max-width: 768px){
+
+    .header{
+      display: none;
+    }
+
+    .mobileDisplay{
+      display:grid;
+      border: 1px solid #273c75;
+    background-color:#273c75 ;
+    color: #ecf0f1;
+    }
+
+    .mobileTop{
+      width: 100%;
+      float: left;
+    }
+
+    .mLogo{
+      width: 90%;
+      float: left;
+    }
+
+    .mContollers{
+      width: 10%;
+      float: left;
+      padding-top: 5px;
+    }
+
+    .mobileBottom{
+      width: 100%;
+      float: left;
+      
+    }
+
+    .sideNavM{
+      width: 10%;
+      float: left;
+    }
+
+    .searchPanel{
+      width: 90%;
+      float: left;
+    }
+
+  }
