@@ -1,0 +1,37 @@
+
+<div class="tableArea" *ngIf="files.length!=0">
+
+    <!-- <div class="fileCards" *ngFor="let file of files"> -->
+    <!-- <mat-card > -->
+<!--      -->
+        <!-- <a [routerLink]="['/viewFile', file.fileName]"> -->
+        <!-- <div class="thumbnail" style="width: 5%; float: left;"> -->
+            <!-- <img src="{{file.thumbnail}}" width="50" height="50"> -->
+        <!-- </div> -->
+<!--      -->
+        <!-- <div class="title" style="width: 65%; float: left;"> -->
+            <!-- <h3 >{{file.fileName}}</h3> -->
+        <!-- </div> -->
+        <!-- </a> -->
+<!--          -->
+
+        <!-- <a [routerLink]="['/viewFile', file.fileName]">View Details</a> -->
+    <!-- </mat-card> -->
+    <!-- </div> -->
+
+    <div>
+        <h1 style="width: 94%; float: left; margin-left: 1%; margin-top: 1%">
+          Starred files
+        </h1>
+      </div>
+    <app-starred-table></app-starred-table>
+
+</div>
+
+
+
+<div *ngIf="files.length==0" >
+    <mat-card>
+        <b>No Starred file</b>
+    </mat-card>
+</div>

@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-paginator{
+      width: 100%;
+
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .tableC{
+      border-radius: 5px;
+  }

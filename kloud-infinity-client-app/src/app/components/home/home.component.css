@@ -1,0 +1,28 @@
+.sn{
+    width: 15%;
+    float: left;
+    height: 100%;
+    position: sticky;
+    background-color: white;
+}
+
+.mb{
+    width: 85%;
+    float: left;
+    background-color: #ecf0f1;
+    height: 100vh;
+    position: sticky;
+    background-image: url("../../../assets/background.jpg");
+}
+
+.ro{
+    width: 100%;
+    float: left;
+    position: absolute;
+}
+
+.AuthBody{
+    height: 100%; 
+    background-image: url("./background.jpg");
+    
+}

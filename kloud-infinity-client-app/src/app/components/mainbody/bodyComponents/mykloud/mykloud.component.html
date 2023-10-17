@@ -1,0 +1,132 @@
+<div>
+  <h1 style="width: 94%; float: left; margin-left: 1%; margin-top: 1%">
+    My Kloud
+  </h1>
+</div>
+<lib-ng-toast></lib-ng-toast>
+<hr
+  style="
+    width: 98%;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  "
+/>
+
+<!-- <div class="searchPanel"> -->
+<!-- <div class="searchInput"> -->
+<!--          -->
+<!-- <mat-form-field class="example-full-width" appearance="fill" > -->
+<!-- <mat-label >Search</mat-label> -->
+<!-- <input matInput type="text" #myInput> -->
+<!-- </mat-form-field> -->
+<!-- </div> -->
+<!--  -->
+<!-- <div class="searchButton"> -->
+<!--  -->
+<!-- <button mat-raised-button color="accent" mat-raised-button (click)="onHome()"> -->
+<!-- <mat-icon>home </mat-icon> -->
+<!-- </button> -->
+<!--          -->
+<!-- <button mat-raised-button color="primary" mat-raised-button (click)="onSearch(myInput.value)"> -->
+<!-- <mat-icon>search </mat-icon> -->
+<!-- </button> -->
+<!-- </div> -->
+<!--  -->
+<!-- </div> -->
+<!--  -->
+
+<!-- <div class="fileCardsList" *ngIf="isSearch == false"> -->
+  <!-- <div class="fileCards" *ngFor="let file of files"> -->
+    <!-- <mat-card > -->
+      <!-- <a [routerLink]="['/viewFile', file.fileName]"> -->
+        <!-- <div class="thumbnail" style="width: 5%; float: left"> -->
+          <!-- <img src="{{ file.thumbnail }}" width="50" height="50" /> -->
+        <!-- </div> -->
+<!--  -->
+        <!-- <div class="title" style="width: 65%; float: left"> -->
+          <!-- <h3>{{ file.fileName.split(".")[0] }}</h3> -->
+        <!-- </div> -->
+      <!-- </a> -->
+<!--  -->
+<!--        -->
+<!--  -->
+      <!-- <div class="menu" style="width: 30%; float: left"> -->
+<!--          -->
+        <!-- <button -->
+          <!-- mat-raised-button -->
+          <!-- color="warn" -->
+          <!-- mat-raised-button -->
+          <!-- (click)="onDelete(file.fileName)" -->
+        <!-- > -->
+          <!-- <mat-icon>delete </mat-icon> -->
+        <!-- </button> -->
+<!--  -->
+        <!-- <button -->
+          <!-- mat-mini-raised-button -->
+          <!-- color="primary" -->
+          <!-- mat-raised-button -->
+          <!-- (click)="onDownload(file.id)" -->
+        <!-- > -->
+          <!-- <mat-icon>download </mat-icon> -->
+        <!-- </button> -->
+<!--  -->
+        <!-- <button mat-button *ngIf="file.starred"> <mat-icon style="color: yellow;">star </mat-icon></button> -->
+      <!-- </div> -->
+<!--  -->
+      <!-- <a [routerLink]="['/viewFile', file.fileName]">View Details</a> -->
+    <!-- </mat-card> -->
+  <!-- </div> -->
+<!-- </div> -->
+
+<div class="recentArea">
+  <app-recent-component></app-recent-component>
+</div>
+
+<div class="tableArea" *ngIf="files.length!=0">
+<app-table-component></app-table-component>
+</div>
+
+<div *ngIf="files.length==0" style="display: flex;justify-content: center;align-items: center;">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="fileCardsList" *ngIf="isSearch == true">
+  <div class="fileCards">
+    <mat-card>
+      <a [routerLink]="['/viewFile', file?.fileName]">
+        <div class="thumbnail" style="width: 5%; float: left">
+          <img
+            src="http://localhost:8080/download/{{ file?.fileName }}"
+            width="50"
+            height="50"
+          />
+        </div>
+        <div class="title" style="width: 65%; float: left">
+          <h3>{{ file?.fileName }}</h3>
+        </div>
+      </a>
+
+      <div class="menu" style="width: 30%; float: left">
+        <button
+          mat-raised-button
+          color="warn"
+          mat-raised-button
+          (click)="onDelete(file!.fileName)"
+        >
+          <mat-icon>delete </mat-icon>
+        </button>
+
+        <button
+          mat-mini-raised-button
+          color="primary"
+          mat-raised-button
+          (click)="onDownload(file!.id)"
+        >
+          <mat-icon>download </mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<h1 mat-dialog-title>Edit profile</h1>
+
+<ngx-avatar class="centerElements" name="{{name}}" src="{{dp}}"  mat-button  size="80" borderColor="#ffffff" ></ngx-avatar>
+<h3 class="centerElements">{{userToken.firstname+" "+userToken.lastname}}</h3>
+<br>
+
+    <mat-accordion>
+
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Name
+            </mat-panel-title>
+            <mat-panel-description>
+                {{userToken.firstname+" "+userToken.lastname}}
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <form [formGroup]="nameChangeForm" (ngSubmit)="changeNameSubmit()">
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+              <mat-label>First Name</mat-label> 
+              <input matInput formControlName="firstname" type="text" required >
+              <mat-error >
+                  First name should start with uppercase letter and should not have space.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill"  style="width: 100%;">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastname" type="text" required>
+              <mat-error >
+                First name should start with uppercase letter and should not have space.
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary"  type="submit" style="width: 100%;">Submit</button><br>
+          </form>
+        </mat-expansion-panel>
+      
+
+      
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Username
+            </mat-panel-title>
+            <mat-panel-description>
+                {{userToken.username}}
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <form [formGroup]="userNameChangeForm" (ngSubmit)="changeUserNameSubmit()">
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+              <mat-label>Username</mat-label> 
+              <p>* Username can't be edited</p>
+              <input matInput value="{{userToken.username}}" type="text" required disabled>
+              <mat-error >
+                  First name should start with uppercase letter and should not have space.
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary"  type="submit" style="width: 100%;">Submit</button><br>
+          </form>
+        </mat-expansion-panel>
+     
+
+      
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Password
+            </mat-panel-title>
+            <mat-panel-description>
+                *******
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+          
+          <mat-stepper [linear]="isLinear" #stepper>
+          
+          
+            <mat-step [stepControl]="verifyPasswordForm">
+              <form [formGroup]="verifyPasswordForm" (ngSubmit)="verifyPasswordSubmit()">
+              <br>
+                <br>
+                <ng-template matStepLabel>Enter your current password</ng-template>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                  <mat-label>Current Password</mat-label>
+                  <input matInput type="password" formControlName="cPassword" required>
+                </mat-form-field>
+                <div>
+
+                  <button mat-raised-button color="primary"  type="submit" style="width: 100%;">Submit</button>
+                  <br>
+                  <div *ngIf="isPasswordVerified">
+                    <br>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+
+                  <div *ngIf="isPasswordVerified==false">
+                    <br>
+                    <button mat-button matStepperNext disabled="">Next</button>
+                  </div>
+                  
+                </div>
+              </form>
+            </mat-step>
+
+
+            <mat-step [stepControl]="passwordChangeForm" label="Set new password">
+              <form [formGroup]="passwordChangeForm" (ngSubmit)="changePasswordSubmit()">
+                <br>
+
+                <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" type="password" required>
+                  <mat-error >
+                    Password should be of minimum 6 length.
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput formControlName="confirmPassword" type="password" required  [errorStateMatcher]="matcher"> 
+                  <mat-error *ngIf="passwordChangeForm.hasError('notSame')" >
+                      confirm password should be same
+                  </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary"  type="submit" style="width: 100%;">Submit</button>
+
+
+              </form>
+            </mat-step>
+
+
+          </mat-stepper>
+
+          
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+          <mat-panel-title>
+          Profile Picture
+          </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form [formGroup]="dpChangeForm" (ngSubmit)="changeDPSubmit()">
+          <br>
+
+            
+              <ngx-avatar class="centerElements" name="{{name}}" src="{{dp2}}"  mat-button  size="80" borderColor="#ffffff" ></ngx-avatar>
+            <br>
+
+            <button type="button" mat-stroked-button (click)="fileInput.click()" color="primary" style="width: 49%; ">Choose File</button>
+            <input hidden class="fileInput" mat-stroked-button #fileInput color="primary" type="file" required style="width: 49%; " (change)="setDp($event)"/>
+              <!-- <button mat-stroked-button color="primary"   style="width: 49%; ">Add new picture</button> -->
+              <button mat-stroked-button color="warn"   style="width: 49%;margin-left: 2%;" (click)="removeDp()">Remove</button><br>
+          <br>
+          <button mat-raised-button color="primary"  type="submit" style="width: 100%;">Submit</button><br>
+          </form>
+          </mat-expansion-panel>
+
+                </mat-accordion>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

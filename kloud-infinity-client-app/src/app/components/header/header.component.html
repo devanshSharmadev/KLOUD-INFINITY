@@ -1,0 +1,74 @@
+<header class="header">
+    <div class="logo">
+        <img src="../../../assets/ki-logo.png" width="200" height="50">
+    </div>
+
+
+    <div class="searchPanel">
+       
+    <app-search-item (updateFName)="setUpdatedFN($event)" ></app-search-item>
+    
+    </div>
+
+    <div class="controllers">
+        
+        <ngx-avatar name="{{name}}" src="{{dp}}"  mat-button [matMenuTriggerFor]="menu" size="40" borderColor="#ffffff"></ngx-avatar>
+        
+        <mat-menu #menu="matMenu" >
+            <ngx-avatar class="centerElements" name="{{name}}" src="{{dp}}"  mat-button [matMenuTriggerFor]="menu" size="80" borderColor="#ffffff" ></ngx-avatar>
+
+            <h2 style="padding-left: 15px;padding-right: 15px;">Welcome, {{userToken.firstname}}</h2>
+            <div class="centerElements">
+            <button class="mab" (click)="openEditProfile()" >Edit Profile</button>
+            </div>
+            <hr>
+            <button mat-menu-item color="primary" style="background-color: aliceblue;" (click)="logOut()"><mat-icon>logout</mat-icon> Logout</button>
+        </mat-menu>
+    
+    </div>
+    
+</header>
+
+<header class="mobileDisplay">
+
+    <div class="mobileTop">
+
+        <div class="mLogo">
+            <img src="../../../assets/ki-logo.png" width="200" height="50">
+        </div>
+
+        <div class="mContollers">
+
+            <ngx-avatar name="{{name}}" src="{{dp}}"  mat-button [matMenuTriggerFor]="menu" size="40" borderColor="#ffffff"></ngx-avatar>
+        
+            <mat-menu #menu="matMenu" >
+                <ngx-avatar class="centerElements" name="{{name}}" src="{{dp}}"  mat-button [matMenuTriggerFor]="menu" size="80" borderColor="#ffffff" ></ngx-avatar>
+    
+                <h2 style="padding-left: 15px;padding-right: 15px;">Welcome, {{userToken.firstname}}</h2>
+                <div class="centerElements">
+                <button class="mab" (click)="openEditProfile()" >Edit Profile</button>
+                </div>
+                <hr>
+                <button mat-menu-item color="primary" style="background-color: aliceblue;" (click)="logOut()"><mat-icon>logout</mat-icon> Logout</button>
+            </mat-menu>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="mobileBottom">
+        <div class="sideNavM">
+            <button mat-icon-button ><mat-icon>menu</mat-icon></button>
+
+
+        </div>
+        <div class="searchPanel">
+            <app-search-item (updateFName)="setUpdatedFN($event)" ></app-search-item>
+        </div>
+    </div>
+
+</header>
+
+

@@ -1,0 +1,93 @@
+
+
+  input{
+    background-color: white;
+    padding-top:15px; 
+    padding-bottom:15px;
+    padding-left:10px; 
+    padding-right:10px; 
+    border:none;
+    border-radius: 5px;
+    width: 700px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+  }
+  
+  
+  input:focus {
+    outline: none ! important;
+    }
+    
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 50%;
+      background-color: white;
+    }
+
+    .mat-input-underline {
+      background-color: white;
+   }
+
+   button{
+     margin-bottom: 5px;
+   }
+
+   .fileNameDD{
+     color: black;
+     text-decoration:none;
+   }
+
+   .fileNameDD:hover{
+     text-decoration:none;
+   }
+
+   .MsearchItem{
+     display: none;
+   }
+
+   @media(max-width: 768px){
+     .searchItem{
+       display: none;
+     }
+     .MsearchItem{
+       display: grid;
+       margin-bottom: 5px;
+     }
+     input:focus {
+      outline: none ! important;
+      }
+      .inputS{
+        width: 90%;
+        float: left;
+        
+      }
+
+      .srcBt{
+        width: 20%;
+        float: left;
+        
+      }
+      
+
+      input{
+        background-color: none;
+        padding-top:10px; 
+        padding-bottom:10px;
+        padding-left:5px; 
+        padding-right:5px; 
+        border:none;
+        border-radius: 5px;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 15px;
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+      }
+   }

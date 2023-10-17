@@ -1,0 +1,83 @@
+<h3>Please Register yourself!</h3>
+<p style="color: #e74c3c;align-items: center;justify-content: center;display: flex;">{{msg}}</p>
+<form [formGroup]="signupForm" (ngSubmit)="signUp()">
+  
+
+    <!-- <div class="form__group" style="width:48%;margin-left: 1%; margin-right: 1%;float: left;"> -->
+        <!-- <input type="email" id="email" class="form__field" placeholder="First Name" > -->
+        <!-- <label for="email" class="form__label">First Name</label> -->
+    <!-- </div> -->
+
+
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 48%; padding-left: 1%; padding-right: 1%;">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstname" type="text" required >
+        <mat-error >
+            First name should start with uppercase letter and should not have space.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 48%; padding-left: 1%; padding-right: 1%;">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastname" type="text" required>
+        <mat-error >
+          First name should start with uppercase letter and should not have space.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 98%; padding-left: 1%; padding-right: 1%;">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" type="text" required>
+        <mat-error >
+            Username should contain only lowercase letters, numbers or underscore(_).
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 98%; padding-left: 1%; padding-right: 1%;">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required>
+        <mat-error >
+            Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+ 
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 48%; padding-left: 1%; padding-right: 1%;">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" required (paste)="false">
+        <mat-error >
+          Password should be of minimum 6 length.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill" style="width: 48%; padding-left: 1%; padding-right: 1%;">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" type="password" required  [errorStateMatcher]="matcher" (paste)="false"> 
+        <mat-error *ngIf="signupForm.hasError('notSame')" >
+            confirm password should be same
+        </mat-error>
+      </mat-form-field>
+
+
+      <p style="margin-left:1%;">Upload DP</p>
+     
+     
+      <div *ngIf="imgSrc==''">
+        <img src="https://www.kindpng.com/picc/m/105-1055656_account-user-profile-avatar-avatar-user-profile-icon.png" style="margin: 8px; border-radius: 5px;" width="100" height="100">
+      </div>
+
+      <div *ngIf="imgSrc!=''">
+        <img [src]="imgSrc" style="margin: 8px; border-radius: 5px;" width="100" height="100">
+      </div>
+
+      <input class="fileInput" mat-button type="file" required style="margin-left:1%;" (change)="getFile($event)"/>
+
+      <br>
+      <br>
+      <button mat-raised-button color="primary"  type="submit" style="width: 100%;">Signup</button><br>
+      
+    
+
+</form>
+
+
+

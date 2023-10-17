@@ -1,0 +1,32 @@
+
+
+<div class="left">
+    <div class="logoImg">
+    <img class="logoImg" src="../../../assets/ki LOGO.png" width="100" height="100">
+    </div>
+    <h1>Kloud !nfinity</h1>
+    <p style="font-size: 30px;">Security at your best!</p>
+</div>
+
+<div class="right">
+    <div class="signUp" *ngIf="isSignUp==true">
+        <mat-card>
+            <h2 style="color: #2c3e50;">Sign Up</h2>
+            <hr>
+            <app-signup></app-signup>
+            <br>
+            <button mat-raised-button style="width: 100%;" (click)="changeToLogin()">Already have account? Click to login!!</button>
+
+        </mat-card>
+    </div>
+    <div class="logIn" *ngIf="isSignUp==false">
+        <mat-card >
+            <h2 style="color: #2c3e50;">Login</h2>
+            <hr>
+            <app-login></app-login>
+            <br>
+            <button mat-raised-button style="width: 100%;" (click)="changeToSignup()">Don't Have an account? Sign Up</button>
+        </mat-card>
+    </div>
+    
+</div>
