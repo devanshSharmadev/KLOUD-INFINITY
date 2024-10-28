@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 
-const connection_URL="mongodb+srv://dev:123@kloudinfinity.ygpu8us.mongodb.net/?retryWrites=true&w=majority"
+const connection_URL=""
 
 mongoose.connect(connection_URL,{useNewUrlParser:true,useUnifiedTopology:true},function(err,result){
   if(err)
